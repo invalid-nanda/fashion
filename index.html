@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion | Premium Accessories and Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-shape bg-shape-one"></div>
+<div class="bg-shape bg-shape-two"></div>
+
+<header class="site-header">
+    <div class="logo-wrap">
+        <div class="logo-mark">F</div>
+        <div class="logo-text">
+            <strong>Fashion</strong>
+            <small>Premium Style House</small>
+        </div>
+    </div>
+
+    <div class="header-actions">
+        <div class="search-wrap">
+            <input type="text" id="search" placeholder="Search jewelry, outfits, beauty essentials..." onkeyup="searchProduct()">
+        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">Dark</button>
+        <button class="cart-icon" onclick="toggleCart()" aria-label="Open cart">
+            <span>Cart</span>
+            <strong id="cart-count">0</strong>
+        </button>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-copy">
+        <p class="kicker">New Season 2026</p>
+        <h1>Elevated Fashion Curated for Everyday Luxury</h1>
+        <p class="hero-sub">Discover signature jewelry, statement footwear, modern ethnic looks, and beauty staples in one seamless premium shopping experience.</p>
+        <div class="hero-cta-row">
+            <button class="hero-btn primary" onclick="filterCategory('all')">Shop Collection</button>
+            <button class="hero-btn" onclick="filterCategory('ethnic')">Explore Ethnic Edit</button>
+        </div>
+    </div>
+    <div class="hero-cards" aria-hidden="true">
+        <article class="hero-card">
+            <h3>Luxury Packaging</h3>
+            <p>Every order is wrapped in premium gift-ready packaging.</p>
+        </article>
+        <article class="hero-card">
+            <h3>Express Dispatch</h3>
+            <p>Fast dispatch with secure tracking on every purchase.</p>
+        </article>
+        <article class="hero-card">
+            <h3>Concierge Support</h3>
+            <p>Dedicated support for styling and order assistance.</p>
+        </article>
+    </div>
+</section>
+
+<section class="category-panel">
+    <h2>Browse Categories</h2>
+    <nav id="category-nav" class="category-nav">
+        <button class="active" onclick="filterCategory('all')">All</button>
+        <button onclick="filterCategory('necklace')">Necklace</button>
+        <button onclick="filterCategory('bangle')">Bangle</button>
+        <button onclick="filterCategory('earring')">Earring</button>
+        <button onclick="filterCategory('ring')">Ring</button>
+        <button onclick="filterCategory('bracelet')">Bracelet</button>
+        <button onclick="filterCategory('ethnic')">Ethnic Wear</button>
+        <button onclick="filterCategory('western')">Western Wear</button>
+        <button onclick="filterCategory('heels')">Heels</button>
+        <button onclick="filterCategory('cosmetic')">Cosmetics</button>
+        <button onclick="filterCategory('skincare')">Skincare</button>
+    </nav>
+</section>
+
+<p class="announcement">Free Shipping above ₹999 | Use code STYLE10 for 10% off | WhatsApp: 9876543210 | Email: fashion@gmail.com</p>
+
+<main>
+    <section class="products-wrap">
+        <div class="section-title-row">
+            <h2>Featured Collection</h2>
+            <p id="results-meta">Showing all categories</p>
+        </div>
+        <div id="products" class="products"></div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>Fashion Premium Style House</p>
+    <p>Crafted for modern wardrobes • <span id="year"></span></p>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-btn" onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-total-box">
+        <h3>Total: ₹<span id="cart-total">0</span></h3>
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <!-- PAYMENT SECTION -->
+    <div id="payment-section" class="payment-section">
+        <h3>Customer Details</h3>
+        <input type="text" id="cust-name" placeholder="Full Name">
+        <input type="text" id="cust-address" placeholder="Delivery Address">
+        <input type="text" id="cust-phone" placeholder="Phone Number">
+        <input type="email" id="cust-email" placeholder="Email Address">
+
+        <h3>Scan and Pay via UPI</h3>
+        <div class="qr-box">
+            <div class="qr-placeholder">
+                <p>📱 UPI QR Code</p>
+                <p style="font-size:12px;">Scan with any UPI App</p>
+                <p style="font-size:11px; color:#888;">GPay | PhonePe | Paytm</p>
+            </div>
+        </div>
+
+        <p class="total-display"><b>Total Payable: ₹<span id="final-amount"></span></b></p>
+        <p style="font-size:13px; color:#777;">After successful payment, click <b>Done</b></p>
+
+        <button class="done-btn" onclick="finishPayment()">✅ Done – Order Confirmed</button>
+        <hr>
+        <p><b>📞 Helpline:</b> 9876543210</p>
+        <p><b>📧 Email:</b> fashion@gmail.com</p>
+    </div>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
